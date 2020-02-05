@@ -1,14 +1,14 @@
-const config = {
-    apiKey: "AIzaSyDYFFFsnjD8t12velnNKQJf_cV90-yPCWU",
-    authDomain: "service-storage-14ac1.firebaseapp.com",
-    databaseURL: "https://service-storage-14ac1.firebaseio.com",
-    projectId: "service-storage-14ac1",
-    storageBucket: "service-storage-14ac1.appspot.com",
-    messagingSenderId: "304859561030",
-    appId: "1:304859561030:web:ca33d79aa66cfaafd9de47"
+var firebaseConfig = {
+    apiKey: "AIzaSyDL3VU6JhBY1KVdr0mC_U6LSdvLLKWngn8",
+    authDomain: "train-tracker-34e4d.firebaseapp.com",
+    databaseURL: "https://train-tracker-34e4d.firebaseio.com",
+    projectId: "train-tracker-34e4d",
+    storageBucket: "train-tracker-34e4d.appspot.com",
+    messagingSenderId: "910379108702",
+    appId: "1:910379108702:web:3dfdfbf0388fcf3f82e7cf"
   };
   // Initialize Firebase
-  firebase.initializeApp(config);
+  firebase.initializeApp(firebaseConfig);
 
   var database = firebase.database();
 
@@ -16,10 +16,10 @@ $("#add-train-btn").on("click", function(event) {
     event.preventDefault();
   
     // Grabs user input
-    var trainName = $("#train-name-input").val().trim();
-    var trainDest = $("#destination-input").val().trim();
-    var trainStart =$("#first-train-input").val().trim()
-    var trainFreq = $("#frequency-input").val().trim();
+    var trainName = $("#train-name-input").val();
+    var trainDest = $("#destination-input").val();
+    var trainStart = moment($("#first-train-input").val(), "HH:mm");
+    var trainFreq = $("#frequency-input").val();
 
     var firstTimeConverted = moment(trainStart, "HH:mm").subtract(1, "years");
     console.log(firstTimeConverted);
